@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Existing head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugito LLC - Our Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Existing styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            background: #e3f2fd;
+        }
+        .menu-section, .logo-section, .container {
+            padding: 15px;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            color: white;
+            padding: 10px 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 70%;
+            max-width: 1200px;
+        }
+        header img {
+            height: 50px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #3399ff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* Mobile Menu Styles */
+        .menu-section {
+            display: none;
+            background: #4c4c4c;
+            color: #ffffff;
+            padding: 15px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .menu-section h1 {
+            margin: 0;
+        }
+        .menu-icon {
+            font-size: 24px;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #4c4c4c;
+            padding: 5px;
+        }
+        .mobile-menu a {
+            color: white;
+            padding: 10px 0;
+            border-bottom: 1px solid #0e4e72;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .mobile-menu a:hover {
+            background: #0e4e72;
+        }
+        .logo-section {
+            text-align: center;
+            background: #ffffff;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .logo-section img {
+            height: 50px;
+        }
+        .container {
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 1000px;
+            background: #ffffff;
+            border-left: 8px solid #146b9d;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #146b9d;
+            text-shadow: 1px 1px 2px #0e4e72;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Styles for Service Items */
+        .service-item-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+        .service-item {
+            flex: 1 1 calc(48% - 20px); /* Adjusted width */
+            max-width: calc(48% - 20px); /* Ensures items don't exceed this width */
+            min-width: 280px;            /* Prevents items from shrinking too much */
+            box-sizing: border-box;
+            margin: 10px 5px;            /* Adjusted margins */
+            background: #f9f9f9;
+            padding: 15px;               /* Reduced padding */
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .service-item img {
+            width: 100%;       /* Ensures image fits within the container */
+            height: auto;
+            border-radius: 5px;
+        }
+        .service-item strong {
+            display: block;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #146b9d;
+        }
+        .service-item p {
+            margin-top: 10px;
+            color: #555;
+            font-size: 16px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;    /* Adjust the number of lines as needed */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 768px) {
+            header {
+                display: none; /* Hide desktop header */
+            }
+            .menu-section {
+                display: flex; /* Show the mobile menu section */
+            }
+            .logo-section {
+                display: block; /* Ensure logo section is visible */
+            }
+            .mobile-menu {
+                display: none;
+                transition: max-height 0.3s ease-in-out;
+            }
+            .mobile-menu.open {
+                display: flex;
+            }
+            .service-item {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: auto;
+            }
+        }
+
+        /* Desktop-specific Styles */
+        @media only screen and (min-width: 769px) {
+            .menu-section, .mobile-menu, .logo-section {
+                display: none; /* Hide mobile sections */
+            }
+            header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            nav {
+                display: flex; /* Ensure nav menu is visible on desktop */
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            var menuItems = document.getElementById("mobile-menu");
+            menuItems.classList.toggle("open");
+        }
+    </script>
+</head>
+<body>
+    <!-- Mobile Version: First Section (MENU and Hamburger Icon) -->
+    <div class="menu-section" onclick="toggleMenu()">
+        <div></div>
+        <div class="menu-icon"><table style="background-color:#222222;"><tr><td><font size="4">MENU ☰</font></td></tr></table></div>
+    </div>
+
+    <!-- Mobile Version: Hidden Menu Items (Expands in First Section) -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <!-- Mobile Version: Second Section (Logo Section) -->
+    <div class="logo-section">
+        <a href="index.html"><img src="images/t_logo.png" alt="Tugito LLC Logo"></a>
+    </div>
+
+    <!-- Desktop Version: Header Section (Combined Logo and Menu) -->
+    <header>
+        <div class="header-container">
+            <div>
+                <a href="index.html"><img src="images/t_logo.png" alt="Tugito LLC Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Section for Both Desktop and Mobile -->
+    <div class="container">
+        <h1>Our Services</h1>
+        <div class="service-item-container">
+            <div class="service-item">
+                <img src="images/BusinessStrategyConsulting.webp" alt="Business Strategy Consulting">
+                <strong>Business Strategy Consulting</strong>
+                <p>Develop effective strategies to achieve your business goals and stay ahead of the competition.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/OperationalEfficiencySolutions.webp" alt="Operational Efficiency Solutions">
+                <strong>Operational Efficiency Solutions</strong>
+                <p>Streamline processes to reduce costs and improve productivity.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/ProjectManagement.webp" alt="Project Management">
+                <strong>Project Management</strong>
+                <p>Manage complex projects efficiently from inception to completion.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/ITandTechnologyConsulting.webp" alt="IT and Technology Consulting">
+                <strong>IT and Technology Consulting</strong>
+                <p>Leverage technology to enhance business performance and innovation.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/RetailSales.webp" alt="Retail Sales Consulting">
+                <strong>Retail Sales Consulting</strong>
+                <p>Optimize your retail operations to increase sales, enhance customer experience, and drive sustainable growth using data-driven strategies and advanced retail solutions.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
